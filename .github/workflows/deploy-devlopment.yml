@@ -25,8 +25,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Download Dockerfile
-      run: |
-        curl -o Dockerfile https://gist.githubusercontent.com/lkduy2602/ec0836465fcc04f5aa93242bc7d4c8db/raw/ffb4e122a1dea027295501fc29fe016ca073755f/Dockerfile
+        run: |
+          curl -o Dockerfile https://gist.githubusercontent.com/lkduy2602/ec0836465fcc04f5aa93242bc7d4c8db/raw/ffb4e122a1dea027295501fc29fe016ca073755f/Dockerfile
 
       - name: Build and push Docker image
         id: push
