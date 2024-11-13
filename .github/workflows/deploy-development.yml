@@ -47,4 +47,4 @@ jobs:
           username: root
           password: hpvps@1Az
           script: |
-            docker rm -f test || true && docker run --name test -d lkduy2602/nestjs-deploy-test:latest
+            docker rm -f test || true && docker run --name test -p 3000:3000 -d lkduy2602/nestjs-deploy-test:latest
