@@ -4,9 +4,6 @@ on:
   push:
     branches: 'main'
 
-env:
-  IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,6 +36,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: lkduy2602/${{ env.IMAGE_NAME }}:latest
+          tags: lkduy2602/nestjs-deploy-test:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
