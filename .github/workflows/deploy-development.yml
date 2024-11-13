@@ -44,7 +44,6 @@ jobs:
         uses: appleboy/ssh-action@v1.1.0
         with:
           host: 178.128.53.4
-          port: 22
           username: root
           password: hpvps@1Az
           script: |
