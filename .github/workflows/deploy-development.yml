@@ -37,6 +37,14 @@ jobs:
           context: .
           push: true
           tags: lkduy2602/nestjs-deploy-test:latest
-          platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: 178.128.53.4
+          username: root
+          password: hpvps@1Az
+          script: |
+            docker run --name test -d lkduy2602/nestjs-deploy-test:latest
