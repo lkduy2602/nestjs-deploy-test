@@ -2,7 +2,7 @@ name: Deploy to development
 
 on:
   push:
-    branches: ['main']
+    branches: 'main'
 
 jobs:
   push_to_registry:
@@ -35,4 +35,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: lkduy2602/nestjs-deploy-test:tagname
+          tags: lkduy2602/nestjs-deploy-test:latest
