@@ -30,9 +30,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Download Dockerfile
+        run: |
+          curl -o secrets.env https://raw.githubusercontent.com/lkduy2602/infrastructure-configs/refs/heads/main/.github/workflows/secrets.env?token=GHSAT0AAAAAACYC3X7XVFNG56KIESH6IL3QZZWCTCA
+
       - name: Load secrets
         run: |
-          cat .env >> $GITHUB_ENV
+          cat secrets.env >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
