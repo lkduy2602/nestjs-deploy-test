@@ -66,5 +66,5 @@ jobs:
           host: ${{ env.SSH_HOST }}
           port: ${{ env.SSH_PORT }}
           username: ${{ env.SSH_USERNAME }}
-          key: ${{ env.SSH_KEY }}
+          password:  ${{ env.SSH_PASSWORD }}
           script: whoami
