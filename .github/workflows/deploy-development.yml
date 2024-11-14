@@ -56,7 +56,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.DOCKER_USERNAME }}/nestjs-deploy-test:latest
+          tags: ${{ env.DOCKERHUB_USERNAME }}/nestjs-deploy-test:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
