@@ -47,5 +47,4 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script: |
-            docker rm -f test || true && docker run --name test -p 3000:3000 -d lkduy2602/nestjs-deploy-test:latest
+          script: whoami
