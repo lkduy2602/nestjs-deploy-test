@@ -56,7 +56,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.DOCKERHUB_USERNAME }}/${{github.event.repository.name}}:latest
+          tags: ${{github.repository}}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -74,6 +74,5 @@ jobs:
             git checkout main
             cp shared/builds/docker-compose.yml matchkeo-api-user/dev
             cd matchkeo-api-user/dev
-            echo "\nDOCKER_IMAGE=${{ env.DOCKERHUB_USERNAME }}/${{github.event.repository.name}}:latest" >> .env
-            echo "\nSERVICE_NAME=${{github.event.repository.name}}" >> .env
-            docker compose up -d
+            echo -e "/\nDOCKER_IMAGE=${{github.repository}}:latest" >> .env
+            echo -e "/\nSERVICE_NAME=${{github.event.repository.name}}" >> .env
