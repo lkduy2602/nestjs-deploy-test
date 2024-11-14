@@ -31,7 +31,7 @@ jobs:
 
       - name: Download Dockerfile
         run: |
-          curl -H "Authorization: token ${{secrets.PAT_TOKEN}}" -o secrets.env https://raw.githubusercontent.com/lkduy2602/infrastructure-configs/main/.github/workflows/secrets.env
+          curl -H "Authorization: token ${{github.token}}" -o secrets.env https://raw.githubusercontent.com/lkduy2602/infrastructure-configs/main/.github/workflows/secrets.env
 
       - name: Load secrets
         run: |
