@@ -68,6 +68,6 @@ jobs:
           username: ${{ env.SSH_USERNAME }}
           password:  ${{ env.SSH_PASSWORD }}
           script: |
-            rm -rf infrastructure-configs &&
+            rm -rf infrastructure-configs
             git clone https://${{secrets.PAT_TOKEN}}@github.com/lkduy2602/infrastructure-configs.git
         
