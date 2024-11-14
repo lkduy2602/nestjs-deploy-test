@@ -60,11 +60,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.1.0
         with:
