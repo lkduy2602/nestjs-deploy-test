@@ -8,5 +8,5 @@ jobs:
   deploy:
     uses: lkduy2602/infrastructure-configs/.github/workflows/reusable-build-deploy.yml@main
     with:
-      service_name: 'api/main-api'
+      service_name: 'nestjs-deploy-test'
       environment: 'dev'
