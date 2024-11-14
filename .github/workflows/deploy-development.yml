@@ -43,8 +43,9 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: 178.128.53.4
-          username: root
-          password: hpvps@1Az
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
           script: |
             docker rm -f test || true && docker run --name test -p 3000:3000 -d lkduy2602/nestjs-deploy-test:latest

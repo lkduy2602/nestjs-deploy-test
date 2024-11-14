@@ -6,16 +6,16 @@ services:
     pull_policy: always
 
     # Container identity
-    container_name: ${SERVICE_NAME:-nestjs-deploy-test}
+    container_name: ${SERVICE_NAME}
 
     # Environment variables
     env_file:
       - .env
 
-    # Runtime behavior
+    # Health monitoring and recovery
     restart: always
     healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:${PORT}/ping']
+      test: 'curl -f http://localhost:8080/ping'
       interval: 30s
       timeout: 10s
       retries: 3
