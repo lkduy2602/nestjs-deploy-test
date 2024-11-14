@@ -4,6 +4,11 @@ on:
   push:
     branches: 'main'
 
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
 jobs:
   deploy:
     uses: lkduy2602/infrastructure-configs/.github/workflows/reusable-build-deploy.yml@main
