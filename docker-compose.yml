@@ -4,6 +4,9 @@ services:
   nestjs-deploy-test:
     platform: linux/amd64
     image: lkduy2602/nestjs-deploy-test:latest
+    pull_policy: always
     env_file:
       - .env
     restart: always
+    ports:
+      - ${PORT}:${PORT}
