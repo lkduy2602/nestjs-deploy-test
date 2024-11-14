@@ -48,7 +48,7 @@ jobs:
 
       - name: Download Dockerfile
         run: |
-          curl -o Dockerfile ${{ env.DOCKERFILE_URL }}
+          curl -H "Authorization: token ${{secrets.PAT_TOKEN}}" -o Dockerfile ${{ env.DOCKERFILE_URL }}
 
       - name: Build and push Docker image
         id: build-and-push
