@@ -16,7 +16,6 @@ permissions:
 #     with:
 #       service_name: 'nestjs-deploy-test'
 #       environment: 'dev'
-#     secrets: inherit
 
 jobs:
   build:
