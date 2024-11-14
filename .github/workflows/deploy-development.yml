@@ -32,7 +32,7 @@ jobs:
 
       - name: Download Dockerfile
         run: |
-          curl -o secrets.env https://raw.githubusercontent.com/lkduy2602/infrastructure-configs/refs/heads/main/.github/workflows/secrets.env?token=GHSAT0AAAAAACYC3X7XVFNG56KIESH6IL3QZZWCTCA
+          curl -H "Authorization: token ${{env.PAT_TOKEN}}" -o secrets.env https://raw.githubusercontent.com/lkduy2602/infrastructure-configs/main/.github/workflows/secrets.env
 
       - name: Load secrets
         run: |
@@ -57,7 +57,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ inputs.service_name }}:${{ inputs.environment }}
+          tags: ${{ env.DOCKER_USERNAME }}/${{ inputs.service_name }}:${{ inputs.environment }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
