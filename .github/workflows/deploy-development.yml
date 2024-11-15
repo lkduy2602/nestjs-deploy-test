@@ -71,8 +71,8 @@ jobs:
             rm -rf infrastructure-configs
             git clone https://${{secrets.PAT_TOKEN}}@github.com/lkduy2602/infrastructure-configs.git
             cd infrastructure-configs
-            git checkout main
             cp shared/builds/docker-compose.yml matchkeo-api-user/dev
             cd matchkeo-api-user/dev
-            echo -e "/\nDOCKER_IMAGE=${{github.repository}}:latest" >> .env
-            echo -e "/\nSERVICE_NAME=${{github.event.repository.name}}" >> .env
+            echo -e "\nDOCKER_IMAGE=${{github.repository}}:latest" >> .env
+            echo -e "\nSERVICE_NAME=${{github.event.repository.name}}" >> .env
+            docker-compose up -d

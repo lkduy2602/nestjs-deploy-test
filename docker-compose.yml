@@ -1,0 +1,31 @@
+services:
+  service:
+    # Image and platform settings
+    image: lkduy2602/nestjs-deploy-test:latest
+    platform: linux/amd64
+    pull_policy: always
+
+    # Container identity
+    container_name: nestjs-deploy-test
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+
+    # Environment variables
+    env_file:
+      - .env
+
+    # Health monitoring and recovery
+    restart: always
+    healthcheck:
+      test: ['CMD', 'wget', '--spider', 'http://0.0.0.0:8080/ping']
+      interval: 30s
+      timeout: 10s
+      retries: 3
